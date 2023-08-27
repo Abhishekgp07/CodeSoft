@@ -1,4 +1,5 @@
 CHATBOT 
+TASK1
 
 
 import re
@@ -6,10 +7,12 @@ import re
 def simple_chatbot(user_input):
     if re.search(r'\bhello\b', user_input, re.I):
         return "Hello! How can I help you?"
-    elif re.search(r'\bhow are you\b', user_input, re.I):
-        return "I'm just a chatbot, but I'm here to assist you!"
-    elif re.search(r'\bwhat is your name\b', user_input, re.I):
-        return "I'm just a chatbot, but I'm here to assist you!"
+    elif re.search(r'\bwho are you\b', user_input, re.I):
+        return "I'm  a chatbot, and  I'm here to assist you!"
+    elif re.search(r'\bWho is your boss?\b', user_input, re.I):
+        return "Mr.Abhishek G.P, is my boss !"
+    elif re.search(r'\bWhat can you do here?\b', user_input, re.I):
+         return "I'm  a chatbot, and  I'm here to assist you!"
     elif re.search(r'\bbye\b', user_input, re.I):
         return "Goodbye! Have a great day!"
     else:
