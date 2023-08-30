@@ -1,0 +1,27 @@
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Sample movie data (feature vectors)
+movies = {
+    'COMDEY MOVIES': np.array([1, 0, 1, 0, 1, 0]), 
+    'HORROR MOVIES': np.array([0, 1, 0, 1, 0, 1]),
+    'ACTION MOVIES': np.array([0, 1, 0, 1, 0, 1]),
+    'ROMATIC MOVIES': np.array([0, 1, 0, 1, 0, 1]),
+
+    # ... more movies
+}
+
+# User preferences (user profile vector)
+user_preferences = np.array([1, 0, 1, 0, 0, 0])  # Likes Action and Drama genres
+
+# Calculate cosine similarity between user profile and movies
+similarities = {}
+for movie, features in movies.items():
+    similarities[movie] = cosine_similarity([user_preferences], [features])[0][0]
+
+# Sort movies by similarity and recommend top N
+top_recommendations = sorted(similarities.items(), key=lambda x: x[1], reverse=True)[:3]
+
+print("Top recommended movies:")
+for movie, similarity in top_recommendations:
+    print(f"{movie} (Similarity: {similarity:.2f})")
